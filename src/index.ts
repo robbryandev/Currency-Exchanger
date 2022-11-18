@@ -31,7 +31,7 @@ $("form").on("submit", (event) => {
   convert.getValue()
     .then((res) => {
       if (typeof res !== "boolean") {
-        const valStr: string = res;
+        const valStr: number = res;
         resultBox.html(`<h1>${curSelect2.val()}: ${valStr}</h1>`);
         console.log(valStr);
       } else {
