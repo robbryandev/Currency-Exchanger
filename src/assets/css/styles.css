@@ -1,0 +1,18 @@
+body {
+  background-color: rgb(67, 65, 65);
+}
+
+label, h1 {
+  color: white;
+}
+
+.btn-primary {
+  --btn-primary: rgb(93, 35, 122);
+  --btn-hover-primary: rgb(92, 39, 82);
+  --bs-btn-border-color: var(--btn-primary);
+  --bs-btn-border-radius: var(--btn-primary);
+  --bs-btn-bg: var(--btn-primary);
+  --bs-btn-hover-border-color: var(--btn-hover-primary);
+  --bs-btn-hover-border-radius: var(--btn-hover-primary);
+  --bs-btn-hover-bg: var(--btn-hover-primary);
+}
