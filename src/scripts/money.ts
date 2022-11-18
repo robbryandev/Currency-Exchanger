@@ -21,18 +21,25 @@ export default class Money {
   async getValue(): Promise<string | boolean> {
     const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${Money.curList[this.from]}`;
     return new Promise((resolve) => {
-      fetch(url)
-        .then((res) => {
-          if (res.ok) {
-            res.json()
-              .then((jres) => {
-                const data = jres.conversion_rates[Money.curList[this.to]];
-                resolve(this.formatValue(data));
-              });
-          } else {
-            resolve(false);
-          }
-        });
+      const mKey = localStorage.getItem(`money-${Money.curList[this.from]}`);
+      if (mKey) {
+        const mJson = JSON.parse(mKey);
+        resolve(this.formatValue(mJson[Money.curList[this.to]]));
+      } else {
+        fetch(url)
+          .then((res) => {
+            if (res.ok) {
+              res.json()
+                .then((jres) => {
+                  const data = jres.conversion_rates;
+                  localStorage.setItem(`money-${Money.curList[this.from]}`, JSON.stringify(data));
+                  resolve(this.formatValue(data[Money.curList[this.to]]));
+                });
+            } else {
+              resolve(false);
+            }
+          });
+      }
     });
   }
 
