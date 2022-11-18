@@ -1,7 +1,7 @@
 {
-  "name": "my-webpack-project",
+  "name": "currency-exchanger",
   "version": "1.0.0",
-  "description": "My webpack project",
+  "description": "A basic web app to convert between 2 currencies",
   "main": "index.js",
   "types": "./src/index.d.ts",
   "scripts": {
@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robbryandev/sudoku-checker.git"
+    "url": "git+https://github.com/robbryandev/Currency-Exchanger.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/robbryandev/sudoku-checker/issues"
+    "url": "https://github.com/robbryandev/Currency-Exchanger/issues"
   },
-  "homepage": "https://github.com/robbryandev/sudoku-checker#readme",
+  "homepage": "https://github.com/robbryandev/Currency-Exchanger#readme",
   "devDependencies": {
     "@babel/preset-typescript": "^7.18.6",
     "@typescript-eslint/eslint-plugin": "^5.42.1",

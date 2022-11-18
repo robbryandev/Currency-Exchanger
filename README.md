@@ -1,22 +1,42 @@
-# _{Application Name}_
+# Currency Exchanger
 
 ## Contributers
 * Robert Bryan
 
 ## Description
-
+A basic web app to convert between 2 currencies
 
 ## Technologies Used
 * HTML
 * CSS
-* Javascript
 * Bootstrap
+* Javascript
+* Typescript
+* Webpack
+* JQuery
 
 ## Setup/Installation Requirements
 
+### env keys
+[API_KEY](https://www.exchangerate-api.com/)
+
+### Requirements
+* Nodejs
+
+### Build setup
+* Download repo
+* Install packages
+```js
+npm i
+```
+* Build site
+```js
+npm run build
+```
+* Open dist/index.html in your browser
 
 ## Known Bugs
-
+* None
 
 ## License
 
