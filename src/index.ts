@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./assets/css/styles.css";
 
 import * as $ from "jquery";
+import AlertMagic from "sweetalert2";
 
 import Money from "./scripts/money";
 
@@ -33,6 +34,12 @@ $("form").on("submit", (event) => {
         const valStr: string = res;
         resultBox.html(`<h1>${curSelect2.val()}: ${valStr}</h1>`);
         console.log(valStr);
+      } else {
+        AlertMagic.fire({
+          title: "Error",
+          text: "There was an error handling your request. Try checking your api key",
+          icon: "error"
+        });
       }
     });
 });
