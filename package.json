@@ -47,10 +47,12 @@
     "workbox-webpack-plugin": "6.5.4"
   },
   "dependencies": {
+    "@types/jquery": "^3.5.14",
     "babel-jest": "^29.3.0",
     "bootstrap": "5.2.2",
     "css-loader": "6.7.1",
     "jest-environment-jsdom": "^29.3.0",
+    "jquery": "^3.6.1",
     "style-loader": "3.3.1"
   }
 }

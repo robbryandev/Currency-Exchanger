@@ -10,7 +10,7 @@ export enum Currency {
 export default class Money {
   val: number;
   to: Currency;
-  curList: string[] = this.getCurrencies();
+  static curList: string[] = Money.getCurrencies();
   constructor(val: number, to: Currency) {
     this.val = val;
     this.to = to;
@@ -24,7 +24,7 @@ export default class Money {
           if (res.ok) {
             res.json()
               .then((jres) => {
-                const data = jres.conversion_rates[this.curList[this.to]];
+                const data = jres.conversion_rates[Money.curList[this.to]];
                 resolve(this.formatValue(data));
               });
           } else {
@@ -39,7 +39,7 @@ export default class Money {
     return num.toFixed(2);
   }
 
-  getCurrencies(): string[] {
+  static getCurrencies(): string[] {
     const res: string[] = [];
     for (let c = 0; c < 6; c++) {
       res.push(Currency[c]);
