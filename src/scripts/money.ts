@@ -9,15 +9,17 @@ export enum Currency {
 
 export default class Money {
   val: number;
+  from: Currency;
   to: Currency;
   static curList: string[] = Money.getCurrencies();
-  constructor(val: number, to: Currency) {
+  constructor(val: number, from: Currency, to: Currency) {
     this.val = val;
+    this.from = from;
     this.to = to;
   }
 
   async getValue(): Promise<string | boolean> {
-    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
+    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${Money.curList[this.from]}`;
     return new Promise((resolve) => {
       fetch(url)
         .then((res) => {
@@ -45,5 +47,22 @@ export default class Money {
       res.push(Currency[c]);
     }
     return res;
+  }
+
+  static toCurrency(val: string) {
+    switch(val) {
+    case "USD":
+      return Currency.USD;
+    case "CAD":
+      return Currency.CAD;
+    case "MXN":
+      return Currency.MXN;
+    case "AUD":
+      return Currency.AUD;
+    case "EUR":
+      return Currency.EUR;
+    case "GBP":
+      return Currency.GBP;
+    }
   }
 }
